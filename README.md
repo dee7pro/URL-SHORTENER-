@@ -15,3 +15,8 @@ It allows users to shorten long URLs, store them, and view their history through
 - SQLAlchemy
 - SQLite
 - HTML, CSS
+- 
+⚠️ Note: HTML templates are shown at the repository root due to GitHub UI limitations.  
+In the actual project, these files reside inside the `templates/` directory as required by Flask.
+The `style.css` file contains all custom styling for the application, implementing a purple–black themed UI with responsive layout, animations, and page-specific styling.
+
