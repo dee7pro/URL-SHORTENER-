@@ -1,0 +1,244 @@
+/* ===== GLOBAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    background: radial-gradient(circle at top, #2a003d, #050008);
+    color: #eee;
+    min-height: 100vh;
+}
+
+/* ===== HOME PAGE ===== */
+.home-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.home-card {
+    background: rgba(15, 5, 25, 0.88);
+    backdrop-filter: blur(12px);
+    padding: 45px;
+    width: 420px;
+    border-radius: 18px;
+    box-shadow:
+        0 0 40px rgba(170, 80, 255, 0.25),
+        0 0 80px rgba(80, 0, 120, 0.2);
+    text-align: center;
+}
+
+.home-card h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #c77dff, #9d4edd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: #b9a6d3;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+input {
+    padding: 13px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #3c1a5b;
+    background-color: #0c0014;
+    color: #eee;
+}
+
+input:focus {
+    outline: none;
+    border-color: #c77dff;
+    box-shadow: 0 0 10px rgba(199, 125, 255, 0.6);
+}
+
+button {
+    padding: 13px;
+    background: linear-gradient(135deg, #9d4edd, #5a189a);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    box-shadow: 0 0 15px rgba(199, 125, 255, 0.8);
+}
+
+.result {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.copy {
+    background: linear-gradient(135deg, #5a189a, #3c096c);
+}
+
+.history-link {
+    display: inline-block;
+    margin-top: 28px;
+    color: #c77dff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.history-link:hover {
+    text-decoration: underline;
+}
+
+.alert.danger {
+    background: rgba(90, 0, 120, 0.3);
+    color: #ffd6ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #9d4edd;
+}
+
+/* ===== HISTORY PAGE ===== */
+.history-page {
+    padding: 60px 20px;
+}
+
+.home-card {
+    animation:
+        cardFadeUp 0.8s ease-out forwards,
+        glowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        box-shadow: 0 0 35px rgba(170, 80, 255, 0.25);
+    }
+    to {
+        box-shadow: 0 0 55px rgba(200, 120, 255, 0.45);
+    }
+}
+
+/* ===== HISTORY PAGE FINAL FIX ===== */
+
+.history-page {
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+.history-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.history-header h1 {
+    font-size: 28px;
+    background: linear-gradient(90deg, #c77dff, #9d4edd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.history-card {
+    background: rgba(15, 5, 25, 0.9);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 0 40px rgba(170, 80, 255, 0.25);
+    overflow-x: auto;
+}
+
+/* TABLE */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th {
+    text-align: left;
+    padding: 12px 10px;
+    color: #c77dff;
+    border-bottom: 1px solid #3c1a5b;
+}
+
+.history-table td {
+    padding: 14px 10px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(60, 26, 91, 0.4);
+}
+
+/* URL truncation */
+.truncate {
+    max-width: 420px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.truncate a {
+    color: #9d4edd;
+    text-decoration: none;
+}
+
+.truncate a:hover {
+    text-decoration: underline;
+}
+
+/* Date */
+.date-cell {
+    color: #b9a6d3;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Back link */
+.back-link {
+    color: #c77dff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Empty */
+.empty {
+    text-align: center;
+    margin-top: 80px;
+    color: #b9a6d3;
+}
+/* ===== FOOTER ===== */
+.footer {
+    position: fixed;
+    bottom: 12px;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.footer h6 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #b9a6d3;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
