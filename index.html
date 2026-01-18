@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<footer class="footer">
+    <h6>Powered by Deepika A</h6>
+</footer>
+
+<body>
+
+<div class="home-page">
+
+    <div class="home-card">
+        <h1>🔗 URL Shortener</h1>
+        <p class="subtitle">
+            Paste a long URL and get a short, shareable link instantly.
+        </p>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="text" name="original_url" placeholder="https://example.com" required>
+            <button type="submit">Shorten URL</button>
+        </form>
+
+        {% if short_url %}
+        <div class="result">
+            <input type="text" id="shortUrl" value="{{ short_url }}" readonly>
+            <button class="copy" onclick="copyURL()">Copy</button>
+        </div>
+        {% endif %}
+
+        <a href="{{ url_for('history') }}" class="history-link">
+            View History →
+        </a>
+    </div>
+
+</div>
+
+<script>
+function copyURL() {
+    const copyText = document.getElementById("shortUrl");
+    copyText.select();
+    navigator.clipboard.writeText(copyText.value);
+    alert("Copied!");
+}
+</script>
+
+</body>
+</html>
